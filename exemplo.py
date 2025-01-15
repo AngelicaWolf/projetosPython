@@ -1,29 +1,11 @@
-def calcular_cedulas_moedas(valor):
-    cedulas = [200, 100, 50, 20, 10, 5, 2]
-    moedas = [1, 0.50, 0.25, 0.10, 0.05, 0.01]
-    
-    resultado = {}
-    
-    # Calcular c�dulas
-    for cedula in cedulas:
-        if valor >= cedula:
-            quantidade = valor // cedula
-            valor -= quantidade * cedula
-            resultado[f"C�dula de R${cedula}"] = int(quantidade)
-    
-    # Calcular moedas
-    for moeda in moedas:
-        if valor >= moeda:
-            quantidade = valor // moeda
-            valor -= quantidade * moeda
-            resultado[f"Moeda de R${moeda:.2f}"] = int(quantidade)
-    
-    return resultado
-
-# Exemplo de uso
-valor = float(input("Digite a quantia em reais: "))
-resultado = calcular_cedulas_moedas(valor)
-
-print("Para compor a quantia de R${:.2f}, voc� precisa de:".format(valor))
-for item, quantidade in resultado.items():
-    print(f"{quantidade} x {item}")
+pc={"Processador":1500,"Placa-mãe":500,"Memória-RAM":600,"Placa-de-Vídeo":1200}
+while True:
+    componente=input("Digite o nome do componente ou 'fim' para sair:")
+    if componente=="fim":
+     break
+    if componente in pc:
+        print(f"Preço{pc[componente]:5.2f}")
+    else:
+        print("Produto não encontrado")
+del pc["Placa-de-Vídeo"]
+print(pc)

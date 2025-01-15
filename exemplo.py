@@ -1,29 +1,18 @@
-def calcular_cedulas_moedas(valor):
-    cedulas = [200, 100, 50, 20, 10, 5, 2]
-    moedas = [1, 0.50, 0.25, 0.10, 0.05, 0.01]
-    
-    resultado = {}
-    
-    # Calcular cÈdulas
-    for cedula in cedulas:
-        if valor >= cedula:
-            quantidade = valor // cedula
-            valor -= quantidade * cedula
-            resultado[f"CÈdula de R${cedula}"] = int(quantidade)
-    
-    # Calcular moedas
-    for moeda in moedas:
-        if valor >= moeda:
-            quantidade = valor // moeda
-            valor -= quantidade * moeda
-            resultado[f"Moeda de R${moeda:.2f}"] = int(quantidade)
-    
-    return resultado
-
-# Exemplo de uso
-valor = float(input("Digite a quantia em reais: "))
-resultado = calcular_cedulas_moedas(valor)
-
-print("Para compor a quantia de R${:.2f}, vocÍ precisa de:".format(valor))
-for item, quantidade in resultado.items():
-    print(f"{quantidade} x {item}")
+PC= {"Lamborghini Aventador":1500000.00,"Dodge Viper": 1100000.00,"Porsche Cayenne": 200000.00,"Ford Mustang": 350000.00,"Ferrari Enzo":12000000.00}
+for carro, preco in PC.items():
+    print(f"{carro}: R$ {preco:,.2f}")
+while True:
+    carro_input = input("Digite o nome do carro ou 'fim' para sair: ")
+    if carro_input.lower() == 'fim':
+        break
+    if carro_input in PC:
+        print(f"Pre√ßo de {carro_input}: R$ {PC[carro_input]:,.2f}")
+    else:
+        print("Carro n√£o encontrado. Tente novamente.")
+print("\nTodos os carros e seus pre√ßos:")
+for carro, preco in PC.items():
+    print(f"{carro}: R$ {preco:,.2f}")
+print("Porsche Cayenne" in PC) 
+print("Tesla Model S" in PC)  
+print("Chaves (nomes dos carros):", PC.keys())
+print("Valores (pre√ßos):", PC.values())
